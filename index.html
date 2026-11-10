@@ -9,186 +9,39 @@
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-
-body{
- font-family:'Kanit',sans-serif;
- background:linear-gradient(135deg,#f5eaff,#ffeaf4,#eee5ff);
- color:#51376e;
- min-height:100vh;
-}
-
-header{
- text-align:center;
- padding:65px 20px 85px;
- color:white;
- background:linear-gradient(135deg,#58377e,#9264c2,#d39bdf);
- border-radius:0 0 45px 45px;
-}
-
+body{font-family:'Kanit',sans-serif;background:linear-gradient(135deg,#f5eaff,#ffeaf4,#eee5ff);color:#51376e;min-height:100vh}
+header{text-align:center;padding:65px 20px 85px;color:white;background:linear-gradient(135deg,#58377e,#9264c2,#d39bdf);border-radius:0 0 45px 45px}
 header h1{font-size:48px;letter-spacing:2px}
 header p{margin-top:10px;font-size:16px}
-
-.container{
- max-width:1150px;
- margin:auto;
- padding:30px 20px;
-}
-
+.container{max-width:1150px;margin:auto;padding:30px 20px}
 .heading{text-align:center;margin:15px 0 25px}
 .heading h2{font-size:27px;color:#774da6}
 .heading p{color:#a080bb;font-size:14px}
-
-.filters{
- display:flex;
- justify-content:center;
- flex-wrap:wrap;
- gap:10px;
- margin-bottom:25px;
-}
-
-.filter-btn{
- border:2px solid #d3b4ed;
- background:white;
- color:#8055a8;
- padding:10px 22px;
- border-radius:30px;
- cursor:pointer;
- font-family:inherit;
- font-size:15px;
- transition:.3s;
-}
-
+.filters{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-bottom:25px}
+.filter-btn{border:2px solid #d3b4ed;background:white;color:#8055a8;padding:10px 22px;border-radius:30px;cursor:pointer;font-family:inherit;font-size:15px;transition:.3s}
 .filter-btn:hover{transform:translateY(-3px)}
-.filter-btn.active{
- background:linear-gradient(135deg,#8755c0,#c28bdc);
- color:white;
- border-color:transparent;
- box-shadow:0 5px 15px #b995d9;
-}
-
-.count{
- text-align:center;
- color:#9676b5;
- margin-bottom:20px;
- font-size:14px;
-}
-
-.gallery{
- display:grid;
- grid-template-columns:repeat(4,1fr);
- gap:22px;
-}
-
-.card{
- background:white;
- border-radius:20px;
- overflow:hidden;
- box-shadow:0 5px 18px #8e6ba326;
- transition:.3s;
-}
-
-.card:hover{
- transform:translateY(-7px);
- box-shadow:0 12px 25px #9472b64d;
-}
-
+.filter-btn.active{background:linear-gradient(135deg,#8755c0,#c28bdc);color:white;border-color:transparent;box-shadow:0 5px 15px #b995d9}
+.count{text-align:center;color:#9676b5;margin-bottom:20px;font-size:14px}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.card{background:white;border-radius:20px;overflow:hidden;box-shadow:0 5px 18px #8e6ba326;transition:.3s}
+.card:hover{transform:translateY(-7px);box-shadow:0 12px 25px #9472b64d}
 .card.hide{display:none}
-
-.cover{
- width:100%;
- aspect-ratio:1/1;
- position:relative;
- background:linear-gradient(135deg,#8562aa,#e2b2df);
-}
-
-.cover img{
- width:100%;
- height:100%;
- object-fit:cover;
- display:block;
-}
-
-.cover-label{
- position:absolute;
- top:12px;
- left:12px;
- background:#ffffffdf;
- color:#8055a8;
- padding:5px 12px;
- border-radius:20px;
- font-size:12px;
-}
-
+.cover{width:100%;aspect-ratio:1/1;position:relative;background:linear-gradient(135deg,#8562aa,#e2b2df)}
+.cover img{width:100%;height:100%;object-fit:cover;display:block}
+.cover-label{position:absolute;top:12px;left:12px;background:#ffffffdf;color:#8055a8;padding:5px 12px;border-radius:20px;font-size:12px}
 .info{padding:14px}
-
-.info h3{
- font-size:17px;
- margin-bottom:3px;
- white-space:nowrap;
- overflow:hidden;
- text-overflow:ellipsis;
-}
-
+.info h3{font-size:17px;margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .artist{font-size:13px;color:#a083bb}
-
-.actions{
- display:flex;
- align-items:center;
- justify-content:space-between;
- margin-top:13px;
- padding-top:10px;
- border-top:1px solid #f0e7f6;
-}
-
+.actions{display:flex;align-items:center;justify-content:space-between;margin-top:13px;padding-top:10px;border-top:1px solid #f0e7f6}
 .album{font-size:11px;color:#b49bc9}
-
-.heart{
- border:0;
- background:#fff0f6;
- color:#df78a9;
- width:37px;
- height:37px;
- border-radius:50%;
- font-size:23px;
- cursor:pointer;
- transition:.2s;
-}
-
+.heart{border:0;background:#fff0f6;color:#df78a9;width:37px;height:37px;border-radius:50%;font-size:23px;cursor:pointer;transition:.2s}
 .heart:hover{transform:scale(1.15)}
-.heart.liked{
- background:#ffe0ed;
- color:#e43f83;
-}
-
-.status{
- text-align:center;
- padding:35px;
- color:#916bb3;
- grid-column:1/-1;
-}
-
-footer{
- text-align:center;
- padding:30px;
- color:#9875b8;
- background:#ffffff70;
- margin-top:30px;
-}
-
-@media(max-width:900px){
- .gallery{grid-template-columns:repeat(3,1fr)}
-}
-
-@media(max-width:600px){
- .gallery{grid-template-columns:repeat(2,1fr);gap:12px}
- header h1{font-size:35px}
- .info{padding:10px}
- .info h3{font-size:14px}
-}
-
-@media(max-width:380px){
- .gallery{grid-template-columns:1fr}
-}
+.heart.liked{background:#ffe0ed;color:#e43f83}
+.status{text-align:center;padding:35px;color:#916bb3;grid-column:1/-1}
+footer{text-align:center;padding:30px;color:#9875b8;background:#ffffff70;margin-top:30px}
+@media(max-width:900px){.gallery{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){.gallery{grid-template-columns:repeat(2,1fr);gap:12px}header h1{font-size:35px}.info{padding:10px}.info h3{font-size:14px}}
+@media(max-width:380px){.gallery{grid-template-columns:1fr}}
 </style>
 </head>
 
@@ -233,26 +86,36 @@ footer{
 
 // รายชื่อเพลงและหมวดหมู่
 const songs = [
+
+ // 🎤 เพลงแร็ป 10 เพลง
  {name:"ดาวค้างฟ้า",artist:"ILLSLICK",category:"rap"},
  {name:"ธารารัตน์",artist:"YOUNGOHM",category:"rap"},
  {name:"เฉยเมย",artist:"YOUNGOHM",category:"rap"},
  {name:"ทน",artist:"SPRITE",category:"rap"},
+ {name:"Benz ดำ",artist:"YOUNGOHM",category:"rap"},
+ {name:"Sunset In Pattaya",artist:"YOUNGOHM",category:"rap"},
+ {name:"ดูไว้",artist:"YOUNGOHM",category:"rap"},
+ {name:"วายร้าย",artist:"ILLSLICK",category:"rap"},
+ {name:"Gucci Belt",artist:"DABOYWAY",category:"rap"},
+ {name:"ทิ้งไว้กลางทาง",artist:"YOUNGOHM",category:"rap"},
 
+ // 🎵 เพลงฟังเพลิน
  {name:"ใกล้",artist:"Scrubb",category:"chill"},
  {name:"ทุกอย่าง",artist:"Scrubb",category:"chill"},
  {name:"เวลาเธอยิ้ม",artist:"Polycat",category:"chill"},
  {name:"มันเป็นใคร",artist:"Polycat",category:"chill"},
 
+ // 💗 เพลงรัก
  {name:"รู้ตัวอีกที",artist:"MEYOU",category:"love"},
  {name:"ถ้าเราเจอกันอีก",artist:"Tilly Birds",category:"love"},
  {name:"คู่ชีวิต",artist:"COCKTAIL",category:"love"},
  {name:"แค่คุณ",artist:"Musketeers",category:"love"}
+
 ];
 
 const gallery=document.getElementById("gallery");
 const count=document.getElementById("count");
 
-// เก็บเพลงที่กดใจไว้ในเครื่อง
 let favorites=JSON.parse(localStorage.getItem("musicFavorites")||"[]");
 let currentFilter="all";
 let loadedSongs=[];
@@ -263,31 +126,26 @@ const categoryNames={
  love:"💗 เพลงรัก"
 };
 
-// ค้นหาปกเพลงจาก Apple iTunes
 async function getSongCover(song){
 
  const term=encodeURIComponent(song.name+" "+song.artist);
-
- const url=
- `https://itunes.apple.com/search?term=${term}&country=th&entity=song&limit=20`;
+ const url=`https://itunes.apple.com/search?term=${term}&country=th&entity=song&limit=20`;
 
  const response=await fetch(url);
  if(!response.ok) throw new Error("โหลดข้อมูลไม่ได้");
 
  const data=await response.json();
 
- const normalize=text=>
- text.toLowerCase().replace(/[^a-z0-9ก-๙]/gi,"");
+ const normalize=text=>text.toLowerCase().replace(/[^a-z0-9ก-๙]/gi,"");
 
  const expectedName=normalize(song.name);
  const expectedArtist=normalize(song.artist);
 
  let result=data.results.find(item=>
- normalize(item.trackName)===expectedName &&
- normalize(item.artistName).includes(expectedArtist)
+  normalize(item.trackName)===expectedName &&
+  normalize(item.artistName).includes(expectedArtist)
  );
 
- // ลองค้นชื่อเพลงแบบใกล้เคียง
  if(!result){
   result=data.results.find(item=>
    normalize(item.trackName).includes(expectedName) &&
@@ -301,13 +159,11 @@ async function getSongCover(song){
   title:result.trackName,
   artist:result.artistName,
   album:result.collectionName,
-  image:result.artworkUrl100
-   .replace("100x100","600x600"),
+  image:result.artworkUrl100.replace("100x100","600x600"),
   link:result.trackViewUrl
  };
 }
 
-// สร้างการ์ดเพลง
 function createCard(song,index){
 
  const liked=favorites.includes(song.name);
@@ -326,9 +182,7 @@ function createCard(song,index){
    <p class="artist"></p>
    <div class="actions">
     <span class="album"></span>
-    <button class="heart ${liked?"liked":""}"
-     aria-label="กดถูกใจเพลง"
-     title="เพิ่มเพลงโปรด">${liked?"♥":"♡"}</button>
+    <button class="heart ${liked?"liked":""}" aria-label="กดถูกใจเพลง" title="เพิ่มเพลงโปรด">${liked?"♥":"♡"}</button>
    </div>
   </div>
  `;
@@ -344,7 +198,6 @@ function createCard(song,index){
  return card;
 }
 
-// กดหัวใจ
 function toggleLike(name,card){
 
  if(favorites.includes(name)){
@@ -368,7 +221,6 @@ function toggleLike(name,card){
  updateCount();
 }
 
-// กรองหมวดหมู่
 function filterMusic(category,button){
 
  currentFilter=category;
@@ -378,11 +230,9 @@ function filterMusic(category,button){
  });
 
  button.classList.add("active");
-
  applyFilter();
 }
 
-// แสดงเพลงตามหมวด
 function applyFilter(){
 
  const cards=document.querySelectorAll(".card");
@@ -411,27 +261,22 @@ function updateCount(){
  applyFilter();
 }
 
-// ปุ่มหมวดหมู่
 document.querySelectorAll(".filter-btn").forEach(button=>{
  button.addEventListener("click",()=>{
   filterMusic(button.dataset.filter,button);
  });
 });
 
-// โหลดเพลงและปกจริง
 async function loadSongs(){
 
  let success=0;
+ gallery.innerHTML="";
 
  for(let i=0;i<songs.length;i++){
 
   try{
    const cover=await getSongCover(songs[i]);
-
-   const song={
-    ...songs[i],
-    ...cover
-   };
+   const song={...songs[i],...cover};
 
    loadedSongs.push(song);
    gallery.appendChild(createCard(song,i));
@@ -445,8 +290,7 @@ async function loadSongs(){
  }
 
  if(success===0){
-  gallery.innerHTML=
-   '<div class="status">ขณะนี้โหลดปกเพลงไม่ได้ กรุณาตรวจสอบอินเทอร์เน็ตแล้วรีเฟรชหน้าเว็บ</div>';
+  gallery.innerHTML='<div class="status">ขณะนี้โหลดปกเพลงไม่ได้ กรุณาตรวจสอบอินเทอร์เน็ตแล้วรีเฟรชหน้าเว็บ</div>';
  }else{
   updateCount();
  }
@@ -455,6 +299,5 @@ async function loadSongs(){
 loadSongs();
 
 </script>
-
 </body>
 </html>

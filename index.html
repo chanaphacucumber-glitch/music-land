@@ -1,247 +1,193 @@
-```html
+
 <!DOCTYPE html>
 <html lang="th">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Music Land 🎧</title>
-
+<title>Music Land ♡</title>
 <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+ font-family:'Kanit',sans-serif;
+ background:linear-gradient(135deg,#f5eaff,#ffeaf4,#eee5ff);
+ color:#51376e;
+ min-height:100vh;
 }
 
-body {
-    font-family: 'Kanit', sans-serif;
-    background: linear-gradient(135deg,#f4eaff,#ffeaf4,#e9e3ff);
-    color: #49336d;
-    min-height: 100vh;
+header{
+ text-align:center;
+ padding:65px 20px 85px;
+ color:white;
+ background:linear-gradient(135deg,#58377e,#9264c2,#d39bdf);
+ border-radius:0 0 45px 45px;
 }
 
-header {
-    background: linear-gradient(135deg,#49306e,#8256b9,#c08ce5);
-    color: white;
-    text-align: center;
-    padding: 65px 20px 85px;
-    border-radius: 0 0 45px 45px;
-    position: relative;
-    overflow: hidden;
+header h1{font-size:48px;letter-spacing:2px}
+header p{margin-top:10px;font-size:16px}
+
+.container{
+ max-width:1150px;
+ margin:auto;
+ padding:30px 20px;
 }
 
-header::before {
-    content: "✦  ♡  ♪  ✧  ♫  ✦";
-    position: absolute;
-    font-size: 35px;
-    opacity: .2;
-    top: 15px;
-    left: 5%;
+.heading{text-align:center;margin:15px 0 25px}
+.heading h2{font-size:27px;color:#774da6}
+.heading p{color:#a080bb;font-size:14px}
+
+.filters{
+ display:flex;
+ justify-content:center;
+ flex-wrap:wrap;
+ gap:10px;
+ margin-bottom:25px;
 }
 
-header h1 {
-    font-size: 48px;
-    margin-bottom: 12px;
-    letter-spacing: 2px;
+.filter-btn{
+ border:2px solid #d3b4ed;
+ background:white;
+ color:#8055a8;
+ padding:10px 22px;
+ border-radius:30px;
+ cursor:pointer;
+ font-family:inherit;
+ font-size:15px;
+ transition:.3s;
 }
 
-header p {
-    font-size: 17px;
-    opacity: .9;
+.filter-btn:hover{transform:translateY(-3px)}
+.filter-btn.active{
+ background:linear-gradient(135deg,#8755c0,#c28bdc);
+ color:white;
+ border-color:transparent;
+ box-shadow:0 5px 15px #b995d9;
 }
 
-.subtitle {
-    margin-top: 20px;
-    display: inline-block;
-    padding: 8px 22px;
-    border: 1px solid #ffffff80;
-    border-radius: 30px;
-    background: #ffffff20;
+.count{
+ text-align:center;
+ color:#9676b5;
+ margin-bottom:20px;
+ font-size:14px;
 }
 
-.container {
-    max-width: 1150px;
-    margin: -40px auto 0;
-    padding: 0 22px 45px;
-    position: relative;
+.gallery{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:22px;
 }
 
-.section-title {
-    text-align: center;
-    margin: 35px 0 22px;
+.card{
+ background:white;
+ border-radius:20px;
+ overflow:hidden;
+ box-shadow:0 5px 18px #8e6ba326;
+ transition:.3s;
 }
 
-.section-title h2 {
-    font-size: 27px;
-    color: #7048a6;
+.card:hover{
+ transform:translateY(-7px);
+ box-shadow:0 12px 25px #9472b64d;
 }
 
-.section-title p {
-    color: #9877b7;
-    font-size: 14px;
+.card.hide{display:none}
+
+.cover{
+ width:100%;
+ aspect-ratio:1/1;
+ position:relative;
+ background:linear-gradient(135deg,#8562aa,#e2b2df);
 }
 
-.filters {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 35px;
+.cover img{
+ width:100%;
+ height:100%;
+ object-fit:cover;
+ display:block;
 }
 
-.filter-btn {
-    padding: 11px 25px;
-    border: 2px solid #c9a5ed;
-    border-radius: 30px;
-    background: white;
-    color: #8054b4;
-    font-family: inherit;
-    font-size: 15px;
-    cursor: pointer;
-    transition: .3s;
+.cover-label{
+ position:absolute;
+ top:12px;
+ left:12px;
+ background:#ffffffdf;
+ color:#8055a8;
+ padding:5px 12px;
+ border-radius:20px;
+ font-size:12px;
 }
 
-.filter-btn:hover {
-    transform: translateY(-4px);
-    background: #f3e5ff;
+.info{padding:14px}
+
+.info h3{
+ font-size:17px;
+ margin-bottom:3px;
+ white-space:nowrap;
+ overflow:hidden;
+ text-overflow:ellipsis;
 }
 
-.filter-btn.active {
-    background: linear-gradient(135deg,#9253df,#c28ae9);
-    color: white;
-    border-color: transparent;
-    box-shadow: 0 5px 15px #b995dc;
+.artist{font-size:13px;color:#a083bb}
+
+.actions{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ margin-top:13px;
+ padding-top:10px;
+ border-top:1px solid #f0e7f6;
 }
 
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 25px;
+.album{font-size:11px;color:#b49bc9}
+
+.heart{
+ border:0;
+ background:#fff0f6;
+ color:#df78a9;
+ width:37px;
+ height:37px;
+ border-radius:50%;
+ font-size:23px;
+ cursor:pointer;
+ transition:.2s;
 }
 
-.card {
-    background: white;
-    border-radius: 22px;
-    overflow: hidden;
-    box-shadow: 0 7px 20px #9477b52b;
-    transition: .35s;
+.heart:hover{transform:scale(1.15)}
+.heart.liked{
+ background:#ffe0ed;
+ color:#e43f83;
 }
 
-.card:hover {
-    transform: translateY(-9px);
-    box-shadow: 0 13px 28px #9873c55c;
+.status{
+ text-align:center;
+ padding:35px;
+ color:#916bb3;
+ grid-column:1/-1;
 }
 
-.card.hide {
-    display: none;
+footer{
+ text-align:center;
+ padding:30px;
+ color:#9875b8;
+ background:#ffffff70;
+ margin-top:30px;
 }
 
-.image-box {
-    height: 210px;
-    overflow: hidden;
-    position: relative;
-    background: linear-gradient(135deg,#8060a8,#d9a9e7);
+@media(max-width:900px){
+ .gallery{grid-template-columns:repeat(3,1fr)}
 }
 
-.image-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: .5s;
+@media(max-width:600px){
+ .gallery{grid-template-columns:repeat(2,1fr);gap:12px}
+ header h1{font-size:35px}
+ .info{padding:10px}
+ .info h3{font-size:14px}
 }
 
-.card:hover .image-box img {
-    transform: scale(1.08);
-}
-
-.tag {
-    position: absolute;
-    top: 13px;
-    left: 13px;
-    padding: 6px 15px;
-    border-radius: 25px;
-    background: #ffffffeb;
-    color: #8153b5;
-    font-size: 12px;
-}
-
-.card-info {
-    padding: 18px;
-}
-
-.card-info h3 {
-    font-size: 19px;
-    margin-bottom: 5px;
-}
-
-.artist {
-    color: #a17bc9;
-    font-size: 14px;
-}
-
-.bottom-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 15px;
-    border-top: 1px solid #f0e8f7;
-    padding-top: 12px;
-}
-
-.type {
-    font-size: 12px;
-    color: #a68ac7;
-}
-
-.heart {
-    font-size: 23px;
-    color: #d77eb3;
-    cursor: pointer;
-    border: none;
-    background: transparent;
-    transition: .2s;
-}
-
-.heart:hover {
-    transform: scale(1.3);
-}
-
-footer {
-    text-align: center;
-    padding: 30px 15px;
-    color: #8963b1;
-    background: #ffffff70;
-}
-
-footer p {
-    margin: 5px;
-    font-size: 14px;
-}
-
-@media(max-width:800px) {
-    .gallery {
-        grid-template-columns: repeat(2,1fr);
-    }
-}
-
-@media(max-width:520px) {
-    .gallery {
-        grid-template-columns: 1fr;
-    }
-
-    header h1 {
-        font-size: 34px;
-    }
-
-    header {
-        padding: 50px 15px 75px;
-    }
-
-    .image-box {
-        height: 220px;
-    }
+@media(max-width:380px){
+ .gallery{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -249,162 +195,266 @@ footer p {
 <body>
 
 <header>
-    <h1>🎧 Music Land ♡</h1>
-    <p>โลกแห่งเสียงเพลง ที่รวมเพลงโปรดของฉันไว้ด้วยกัน</p>
-    <div class="subtitle">♫ Find Your Favorite Song ♫</div>
+ <h1>🎧 Music Land ♡</h1>
+ <p>Welcome to my little world of music ✨</p>
+ <p>รวมเพลงโปรดที่ฟังแล้วใจฟู 💜</p>
 </header>
 
-<div class="container">
+<main class="container">
 
-    <div class="section-title">
-        <h2>✦ My Favorite Music ✦</h2>
-        <p>เลือกหมวดหมู่เพลงที่คุณอยากฟังได้เลย 💜</p>
-    </div>
+ <div class="heading">
+  <h2>✦ My Favorite Songs ✦</h2>
+  <p>ค้นหาเพลงที่ใช่ แล้วกดหัวใจเก็บไว้เลย</p>
+ </div>
 
-    <div class="filters">
-        <button class="filter-btn active" onclick="filterMusic('all',this)">✦ ทั้งหมด</button>
-        <button class="filter-btn" onclick="filterMusic('rap',this)">🎤 แร็ป</button>
-        <button class="filter-btn" onclick="filterMusic('chill',this)">🎵 ฟังเพลิน</button>
-        <button class="filter-btn" onclick="filterMusic('love',this)">💗 เพลงรัก</button>
-    </div>
+ <div class="filters">
+  <button class="filter-btn active" data-filter="all">✦ ทั้งหมด</button>
+  <button class="filter-btn" data-filter="rap">🎤 แร็ป</button>
+  <button class="filter-btn" data-filter="chill">🎵 ฟังเพลิน</button>
+  <button class="filter-btn" data-filter="love">💗 เพลงรัก</button>
+  <button class="filter-btn" data-filter="liked">♥ เพลงที่ถูกใจ</button>
+ </div>
 
-    <div class="gallery">
+ <div class="count" id="count">กำลังโหลดเพลง...</div>
 
-        <div class="card" data-category="rap">
-            <div class="image-box">
-                <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=700" alt="Rap music">
-                <span class="tag">🎤 แร็ป</span>
-            </div>
-            <div class="card-info">
-                <h3>รู้ตัวอีกที</h3>
-                <p class="artist">YOUNGOHM</p>
-                <div class="bottom-info">
-                    <span class="type">Rap / Hip Hop</span>
-                    <button class="heart" onclick="likeSong(this)">♡</button>
-                </div>
-            </div>
-        </div>
+ <div class="gallery" id="gallery">
+  <div class="status">🎵 กำลังค้นหาปกเพลงจริง กรุณารอสักครู่...</div>
+ </div>
 
-        <div class="card" data-category="rap">
-            <div class="image-box">
-                <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=700" alt="Hip hop">
-                <span class="tag">🎤 แร็ป</span>
-            </div>
-            <div class="card-info">
-                <h3>รักเศร้าเหงาซึม</h3>
-                <p class="artist">SPRITE</p>
-                <div class="bottom-info">
-                    <span class="type">Rap / Hip Hop</span>
-                    <button class="heart" onclick="likeSong(this)">♡</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="card" data-category="chill">
-            <div class="image-box">
-                <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=700" alt="Chill music">
-                <span class="tag">🎵 ฟังเพลิน</span>
-            </div>
-            <div class="card-info">
-                <h3>ดาวค้างฟ้า</h3>
-                <p class="artist">Paradox</p>
-                <div class="bottom-info">
-                    <span class="type">Relax / Music</span>
-                    <button class="heart" onclick="likeSong(this)">♡</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="card" data-category="chill">
-            <div class="image-box">
-                <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=700" alt="Guitar music">
-                <span class="tag">🎵 ฟังเพลิน</span>
-            </div>
-            <div class="card-info">
-                <h3>Baller</h3>
-                <p class="artist">1MILL</p>
-                <div class="bottom-info">
-                    <span class="type">Relax / Music</span>
-                    <button class="heart" onclick="likeSong(this)">♡</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="card" data-category="love">
-            <div class="image-box">
-                <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=700" alt="Love music">
-                <span class="tag">💗 เพลงรัก</span>
-            </div>
-            <div class="card-info">
-                <h3>ใจเธอมีไว้ให้เขา</h3>
-                <p class="artist">Scrubb</p>
-                <div class="bottom-info">
-                    <span class="type">Love Song</span>
-                    <button class="heart" onclick="likeSong(this)">♡</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="card" data-category="love">
-            <div class="image-box">
-                <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=700" alt="Romantic music">
-                <span class="tag">💗 เพลงรัก</span>
-            </div>
-            <div class="card-info">
-                <h3>แอบรักไม่ทำให้ใครตาย</h3>
-                <p class="artist">Polycat</p>
-                <div class="bottom-info">
-                    <span class="type">Love Song</span>
-                    <button class="heart" onclick="likeSong(this)">♡</button>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
+</main>
 
 <footer>
-    <h3>💜 Music Land 🎧</h3>
-    <p>Made with love ♡</p>
-    <p>Thank you for visiting my music world ✨</p>
+ <h3>💜 Music Land 🎧</h3>
+ <p>Made with love ♡</p>
+ <p>Thank you for visiting my music world ✨</p>
 </footer>
 
 <script>
-function filterMusic(category,button) {
 
-    const cards = document.querySelectorAll('.card');
-    const buttons = document.querySelectorAll('.filter-btn');
+// รายชื่อเพลงและหมวดหมู่
+const songs = [
+ {name:"ดาวค้างฟ้า",artist:"ILLSLICK",category:"rap"},
+ {name:"ธารารัตน์",artist:"YOUNGOHM",category:"rap"},
+ {name:"เฉยเมย",artist:"YOUNGOHM",category:"rap"},
+ {name:"ทน",artist:"SPRITE",category:"rap"},
 
-    buttons.forEach(btn => btn.classList.remove('active'));
-    button.classList.add('active');
+ {name:"ใกล้",artist:"Scrubb",category:"chill"},
+ {name:"ทุกอย่าง",artist:"Scrubb",category:"chill"},
+ {name:"เวลาเธอยิ้ม",artist:"Polycat",category:"chill"},
+ {name:"มันเป็นใคร",artist:"Polycat",category:"chill"},
 
-    cards.forEach(card => {
+ {name:"รู้ตัวอีกที",artist:"MEYOU",category:"love"},
+ {name:"ถ้าเราเจอกันอีก",artist:"Tilly Birds",category:"love"},
+ {name:"คู่ชีวิต",artist:"COCKTAIL",category:"love"},
+ {name:"แค่คุณ",artist:"Musketeers",category:"love"}
+];
 
-        if(category === 'all' ||
-           card.dataset.category === category) {
+const gallery=document.getElementById("gallery");
+const count=document.getElementById("count");
 
-            card.classList.remove('hide');
+// เก็บเพลงที่กดใจไว้ในเครื่อง
+let favorites=JSON.parse(localStorage.getItem("musicFavorites")||"[]");
+let currentFilter="all";
+let loadedSongs=[];
 
-        } else {
+const categoryNames={
+ rap:"🎤 แร็ป",
+ chill:"🎵 ฟังเพลิน",
+ love:"💗 เพลงรัก"
+};
 
-            card.classList.add('hide');
+// ค้นหาปกเพลงจาก Apple iTunes
+async function getSongCover(song){
 
-        }
+ const term=encodeURIComponent(song.name+" "+song.artist);
 
-    });
+ const url=
+ `https://itunes.apple.com/search?term=${term}&country=th&entity=song&limit=20`;
+
+ const response=await fetch(url);
+ if(!response.ok) throw new Error("โหลดข้อมูลไม่ได้");
+
+ const data=await response.json();
+
+ const normalize=text=>
+ text.toLowerCase().replace(/[^a-z0-9ก-๙]/gi,"");
+
+ const expectedName=normalize(song.name);
+ const expectedArtist=normalize(song.artist);
+
+ let result=data.results.find(item=>
+ normalize(item.trackName)===expectedName &&
+ normalize(item.artistName).includes(expectedArtist)
+ );
+
+ // ลองค้นชื่อเพลงแบบใกล้เคียง
+ if(!result){
+  result=data.results.find(item=>
+   normalize(item.trackName).includes(expectedName) &&
+   normalize(item.artistName).includes(expectedArtist)
+  );
+ }
+
+ if(!result) throw new Error("ไม่พบปกเพลงที่ตรงกัน");
+
+ return {
+  title:result.trackName,
+  artist:result.artistName,
+  album:result.collectionName,
+  image:result.artworkUrl100
+   .replace("100x100","600x600"),
+  link:result.trackViewUrl
+ };
 }
 
-function likeSong(button) {
-    if(button.innerHTML === '♡') {
-        button.innerHTML = '♥';
-        button.style.color = '#e34d91';
-    } else {
-        button.innerHTML = '♡';
-        button.style.color = '#d77eb3';
-    }
+// สร้างการ์ดเพลง
+function createCard(song,index){
+
+ const liked=favorites.includes(song.name);
+ const card=document.createElement("article");
+ card.className="card";
+ card.dataset.category=song.category;
+ card.dataset.name=song.name;
+
+ card.innerHTML=`
+  <div class="cover">
+   <img src="${song.image}" alt="ปกเพลง ${song.title}">
+   <span class="cover-label">${categoryNames[song.category]}</span>
+  </div>
+  <div class="info">
+   <h3></h3>
+   <p class="artist"></p>
+   <div class="actions">
+    <span class="album"></span>
+    <button class="heart ${liked?"liked":""}"
+     aria-label="กดถูกใจเพลง"
+     title="เพิ่มเพลงโปรด">${liked?"♥":"♡"}</button>
+   </div>
+  </div>
+ `;
+
+ card.querySelector("h3").textContent=song.title;
+ card.querySelector(".artist").textContent=song.artist;
+ card.querySelector(".album").textContent=song.album||"Music";
+
+ card.querySelector(".heart").addEventListener("click",()=>{
+  toggleLike(song.name,card);
+ });
+
+ return card;
 }
+
+// กดหัวใจ
+function toggleLike(name,card){
+
+ if(favorites.includes(name)){
+  favorites=favorites.filter(item=>item!==name);
+ }else{
+  favorites.push(name);
+ }
+
+ localStorage.setItem("musicFavorites",JSON.stringify(favorites));
+
+ const button=card.querySelector(".heart");
+ const liked=favorites.includes(name);
+
+ button.textContent=liked?"♥":"♡";
+ button.classList.toggle("liked",liked);
+
+ if(currentFilter==="liked"){
+  card.classList.toggle("hide",!liked);
+ }
+
+ updateCount();
+}
+
+// กรองหมวดหมู่
+function filterMusic(category,button){
+
+ currentFilter=category;
+
+ document.querySelectorAll(".filter-btn").forEach(btn=>{
+  btn.classList.remove("active");
+ });
+
+ button.classList.add("active");
+
+ applyFilter();
+}
+
+// แสดงเพลงตามหมวด
+function applyFilter(){
+
+ const cards=document.querySelectorAll(".card");
+ let visible=0;
+
+ cards.forEach(card=>{
+
+  const categoryMatch=
+   currentFilter==="all" ||
+   card.dataset.category===currentFilter ||
+   (currentFilter==="liked" && favorites.includes(card.dataset.name));
+
+  card.classList.toggle("hide",!categoryMatch);
+
+  if(categoryMatch) visible++;
+ });
+
+ if(currentFilter==="liked" && visible===0){
+  count.textContent="ยังไม่มีเพลงที่กดถูกใจ 💗";
+ }else{
+  count.textContent=`แสดงเพลง ${visible} เพลง`;
+ }
+}
+
+function updateCount(){
+ applyFilter();
+}
+
+// ปุ่มหมวดหมู่
+document.querySelectorAll(".filter-btn").forEach(button=>{
+ button.addEventListener("click",()=>{
+  filterMusic(button.dataset.filter,button);
+ });
+});
+
+// โหลดเพลงและปกจริง
+async function loadSongs(){
+
+ let success=0;
+
+ for(let i=0;i<songs.length;i++){
+
+  try{
+   const cover=await getSongCover(songs[i]);
+
+   const song={
+    ...songs[i],
+    ...cover
+   };
+
+   loadedSongs.push(song);
+   gallery.appendChild(createCard(song,i));
+   success++;
+
+   count.textContent=`โหลดปกเพลงแล้ว ${success}/${songs.length} เพลง`;
+
+  }catch(error){
+   console.log("ไม่พบปกเพลง:",songs[i].name,error);
+  }
+ }
+
+ if(success===0){
+  gallery.innerHTML=
+   '<div class="status">ขณะนี้โหลดปกเพลงไม่ได้ กรุณาตรวจสอบอินเทอร์เน็ตแล้วรีเฟรชหน้าเว็บ</div>';
+ }else{
+  updateCount();
+ }
+}
+
+loadSongs();
+
 </script>
 
 </body>
 </html>
-```

@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Music Land 🎧</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #eee3ff, #fce4f3);
+    color: #49336d;
+}
+
+header {
+    text-align: center;
+    padding: 55px 20px 35px;
+    background: linear-gradient(135deg, #7450b8, #b58be9);
+    color: white;
+}
+
+header h1 {
+    font-size: 42px;
+    margin: 0 0 12px;
+}
+
+header p {
+    font-size: 17px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 30px 20px;
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    border: 2px solid #a47bdb;
+    background: white;
+    color: #7650b5;
+    padding: 12px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: #8754d6;
+    color: white;
+    transform: translateY(-3px);
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px #bda6d9;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px #a98bcf;
+}
+
+.card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+
+.card-info {
+    padding: 17px;
+}
+
+.card-info h3 {
+    margin: 0 0 8px;
+}
+
+.card-info p {
+    color: #9874c7;
+    margin: 0;
+}
+
+.category {
+    display: inline-block;
+    background: #f0e4ff;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.card.hide {
+    display: none;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #7650b5;
+}
+
+@media (max-width: 750px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 30px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🎧 Music Land 🎵</h1>
+    <p>โลกแห่งเสียงเพลง ค้นพบเพลงโปรดที่ใช่สำหรับคุณ 💜</p>
+</header>
+
+<div class="container">
+
+    <div class="filters">
+        <button class="filter-btn active" onclick="filterMusic('all', this)">ทั้งหมด</button>
+        <button class="filter-btn" onclick="filterMusic('rap', this)">🎤 แร็ป</button>
+        <button class="filter-btn" onclick="filterMusic('chill', this)">🎵 ฟังเพลิน</button>
+        <button class="filter-btn" onclick="filterMusic('love', this)">💗 เพลงรัก</button>
+    </div>
+
+    <div class="gallery">
+
+        <div class="card" data-category="rap">
+            <img src="https://placehold.co/600x400/392d52/ffffff?text=Rap+Music" alt="Rap Music">
+            <div class="card-info">
+                <span class="category">🎤 แร็ป</span>
+                <h3>รู้ตัวอีกที</h3>
+                <p>YOUNGOHM</p>
+            </div>
+        </div>
+
+        <div class="card" data-category="rap">
+            <img src="https://placehold.co/600x400/54406b/ffffff?text=Hip+Hop" alt="Hip Hop">
+            <div class="card-info">
+                <span class="category">🎤 แร็ป</span>
+                <h3>รักเศร้าเหงาซึม</h3>
+                <p>SPRITE</p>
+            </div>
+        </div>
+
+        <div class="card" data-category="chill">
+            <img src="https://placehold.co/600x400/9479b8/ffffff?text=Chill+Music" alt="Chill Music">
+            <div class="card-info">
+                <span class="category">🎵 ฟังเพลิน</span>
+                <h3>ดาวค้างฟ้า</h3>
+                <p>Paradox</p>
+            </div>
+        </div>
+
+        <div class="card" data-category="chill">
+            <img src="https://placehold.co/600x400/bb91c9/ffffff?text=Relax+Music" alt="Relax Music">
+            <div class="card-info">
+                <span class="category">🎵 ฟังเพลิน</span>
+                <h3>Baller</h3>
+                <p>1MILL</p>
+            </div>
+        </div>
+
+        <div class="card" data-category="love">
+            <img src="https://placehold.co/600x400/d58eb9/ffffff?text=Love+Song" alt="Love Song">
+            <div class="card-info">
+                <span class="category">💗 เพลงรัก</span>
+                <h3>ใจเธอมีไว้ให้เขา</h3>
+                <p>Scrubb</p>
+            </div>
+        </div>
+
+        <div class="card" data-category="love">
+            <img src="https://placehold.co/600x400/a77ba8/ffffff?text=Sweet+Love" alt="Sweet Love">
+            <div class="card-info">
+                <span class="category">💗 เพลงรัก</span>
+                <h3>แอบรักไม่ทำให้ใครตาย</h3>
+                <p>Polycat</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    💜 Made with love | Music Land 🎧
+</footer>
+
+<script>
+function filterMusic(category, button) {
+
+    const cards = document.querySelectorAll('.card');
+    const buttons = document.querySelectorAll('.filter-btn');
+
+    buttons.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+
+    cards.forEach(card => {
+
+        if (category === 'all' ||
+            card.dataset.category === category) {
+
+            card.classList.remove('hide');
+
+        } else {
+
+            card.classList.add('hide');
+
+        }
+
+    });
+}
+</script>
+
+</body>
+</html>
